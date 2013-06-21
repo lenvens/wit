@@ -114,7 +114,7 @@ else
 	<input type="text" name="bank_id" class="input-block-level" placeholder="Bank_id" >
 	<input type="text" name="bank_code" class="input-block-level" placeholder="Bank_code" >
 	<input type="text" name="kind" class="input-block-level" placeholder="Kind" >
-	<input name="sbt" type="submit" value="register" class="btn btn-large btn-primary" />
+	<input name="sbt" type="submit" value="Register" class="btn btn-large btn-primary" />
 	</form>
 
     </div> <!-- /container -->
