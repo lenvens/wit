@@ -1,4 +1,0 @@
-wit
-===
-
-Wit Project
