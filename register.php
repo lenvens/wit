@@ -1,6 +1,5 @@
 <?php
-use po\MyPoA,
-    po\MyPoB;
+use witclass\User_t;
 
 require_once 'doctrine.php';
 $login=$_POST['login'];
@@ -8,6 +7,7 @@ $pwd=$_POST['pwd'];
 $sbt=$_POST['sbt'];
 if(isset($sbt))
 {
+	echo "xxxx";
 
 
 	#login
@@ -25,9 +25,9 @@ if(isset($sbt))
 	#
 	#}
 
-	$a=new MyPoA;
-	$a->setMyPoAName($login);
-	$a->setMyPoAPassword($pwd);
+	$a=new User_t;
+	$a->set_User_t_login($login);
+	$a->set_User_t_auth($pwd);
 
 	//$b=new MyPoB;
 	//$b->setMyPoBNick('weitao');

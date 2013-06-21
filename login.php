@@ -11,7 +11,7 @@ if(isset($sbt))
 {
 
 
-	$eee = $em->createQuery('SELECT u FROM po\MyPoA u where u.name=\''.$login.'\' and u.password=\''.$pwd.'\'');
+	$eee = $em->createQuery('SELECT u FROM witclass\User_t u where u.login=\''.$login.'\' and u.auth=\''.$pwd.'\'');
 	$users = $eee->getArrayResult();
 	if($users)
 	{
