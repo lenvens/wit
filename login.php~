@@ -97,7 +97,7 @@ else
         <h2 class="form-signin-heading">Please Login</h2>
 	<input type="text" name="login" class="input-block-level" placeholder="login" >
 	<input type="password" name="pwd" class="input-block-level" placeholder="Password" >
-	<input name="sbt" type="submit" value="Login" class="btn btn-large btn-primary" />
+	<input name="sbt" type="submit" value="register" class="btn btn-large btn-primary" />
 	</form>
 
     </div> <!-- /container -->

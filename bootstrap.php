@@ -1,39 +1,50 @@
 <?php
-session_start();
 use witclass\User_t;
-
 
 require_once 'doctrine.php';
 $login=$_POST['login'];
 $pwd=$_POST['pwd'];
 $sbt=$_POST['sbt'];
+$phone=$_POST['mobile'];
+$email=$_POST['email'];
+$bank_id=$_POST['bank_id'];
+$bank_code=$_POST['bank_code'];
+$kind=$_POST['kind'];
 if(isset($sbt))
 {
+	echo "xxxx";
 
 
-	$eee = $em->createQuery('SELECT u FROM witclass\User_t u where u.login=\''.$login.'\' and u.auth=\''.$pwd.'\'');
-	$users = $eee->getArrayResult();
-	if($users)
-	{
-		$_SESSION['wt']='wt';
-		Header("Location:home.php");
+	#login
+	#$eee = $em->createQuery('SELECT u FROM po\MyPoA u where u.name=\''.$login.'\' and u.password=\''.$pwd.'\'');
+	#$users = $eee->getArrayResult();
+	#var_dump($users);
+	#if($users)
+	#{
+	#	echo "xxxdfd";
+	#
+	#}
+	#else
+	#{
+	#	echo "dfdfdfd";
+	#
+	#}
 
-	
-	}
-	else
-	{
-		echo "dfdfdfd";
-	
-	}
-	//$a=new MyPoA;
-	//$a->setMyPoAName('weitao');
+	$a=new User_t;
+	$a->set_User_t_login($login);
+	$a->set_User_t_auth($pwd);
+	$a->set_User_t_phone($phone);
+	$a->set_User_t_email($email);
+	$a->set_User_t_bank_id($bank_id);
+	$a->set_User_t_bank_code($bank_code);
+	$a->set_User_t_kind($kind);
 
 	//$b=new MyPoB;
 	//$b->setMyPoBNick('weitao');
 	//$b->setMyPoAbid($a);
-	//$em->persist($a);
+	$em->persist($a);
 	//$em->persist($b);
-	//$em->flush();
+	$em->flush();
 }
 else
 {
@@ -93,11 +104,17 @@ else
   </head>
   <body>
     <div class="container">
+
 	<form class="form-signin" method="post" action="<?=$PHP_SELF?>">
-        <h2 class="form-signin-heading">Please Login</h2>
-	<input type="text" name="login" class="input-block-level" placeholder="login" >
+        <h2 class="form-signin-heading">Please Register</h2>
+	<input type="text" name="login" class="input-block-level" placeholder="Name" >
 	<input type="password" name="pwd" class="input-block-level" placeholder="Password" >
-	<input name="sbt" type="submit" value="Login" class="btn btn-large btn-primary" />
+	<input type="text" name="mobile" class="input-block-level" placeholder="Mobile" >
+	<input type="text" name="email" class="input-block-level" placeholder="Email" >
+	<input type="text" name="bank_id" class="input-block-level" placeholder="Bank_id" >
+	<input type="text" name="bank_code" class="input-block-level" placeholder="Bank_code" >
+	<input type="text" name="kind" class="input-block-level" placeholder="Kind" >
+	<input name="sbt" type="submit" value="Register" class="btn btn-large btn-primary" />
 	</form>
 
     </div> <!-- /container -->

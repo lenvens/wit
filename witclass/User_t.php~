@@ -75,13 +75,30 @@ class User_t
 	//	return $this->phone;
 	//}
 
-	//public function set_User_t_phone($phone)
-	//{
-	//	$this->phone=$phone;
-	//}
+	public function set_User_t_phone($phone)
+	{
+		$this->phone=$phone;
+	}
 
+	public function set_User_t_email($email)
+	{
+		$this->email=$email;
+	}
 
+	public function set_User_t_bank_id($bank_id)
+	{
+		$this->bank_id=$bank_id;
+	}
+	
+	public function set_User_t_bank_code($bank_code)
+	{
+		$this->bank_code=$bank_code;
+	}
 
+	public function set_User_t_kind($kind)
+	{
+		$this->bank_code=$bank_code;
+	}
 	//public function set_User_t_task_temp(Task_t $task_temp)
 	//{
 	//	if($this->task_temp!=$task_temp)
