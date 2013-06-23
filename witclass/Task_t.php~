@@ -34,7 +34,7 @@ class Task_t
 	 * @ManyToOne (targetEntity="User_t", inversedBy="Task_t") 
 	 * @JoinColumn (name="user_id", referencedColumnName="user_id")
 	 *
-	 * @Column(type="integer",length=50) 
+	 * @Column(type="integer",length=50,nullable=TRUE) 
 	 */
 	private $user_id; 
 

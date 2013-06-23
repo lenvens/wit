@@ -19,7 +19,7 @@ class Taskinfo_t
 
 	/**
 	 *
-	 * @Column(type="integer",length=50) 
+	 * @Column(type="integer",length=50,nullable=TRUE) 
 	 * @ManyToOne (targetEntity="Task_t", inversedBy="Taskinfo_t") 
 	 * @JoinColumn (name="task_id", referencedColumnName="task_id")
 	 */
@@ -27,7 +27,7 @@ class Taskinfo_t
 
 	/**
 	 *
-	 * @Column(type="integer",length=50) 
+	 * @Column(type="integer",length=50,nullable=TRUE) 
 	 * @ManyToOne (targetEntity="User_t", inversedBy="Taskinfo_t") 
 	 * @JoinColumn (name="user_id", referencedColumnName="user_id")
 	 */

@@ -10,6 +10,7 @@ $email=$_POST['email'];
 $bank_id=$_POST['bank_id'];
 $bank_code=$_POST['bank_code'];
 $kind=$_POST['kind'];
+print_r($_POST);
 if(isset($sbt))
 {
 	echo "xxxx";
@@ -53,7 +54,7 @@ else
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Sign in &middot; Twitter Bootstrap</title>
+    <title>Sign in </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">

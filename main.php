@@ -1,33 +1,36 @@
 <?php
+Header("Content-type:text/html;charset=utf-8");
 session_start();
-use witclass\User_t;
-
-
+use witclass\Task_t;
+$user_id=$_SESSION['user_id'];
 require_once 'doctrine.php';
-$login=$_POST['login'];
-$pwd=$_POST['pwd'];
-$sbt=$_POST['sbt'];
-if(isset($sbt))
-{
 
-
-	$eee = $em->createQuery('SELECT u FROM witclass\User_t u where u.login=\''.$login.'\' and u.auth=\''.$pwd.'\'');
+	#login
+	$eee = $em->createQuery('SELECT u FROM witclass\Task_t u where u.user_id=\''.$user_id.'\'');
 	$users = $eee->getArrayResult();
 	if($users)
 	{
-		$_SESSION['login']=$login;
-		$_SESSION['user_id']=$users['user_id'];
-		Header("Location:home.php");
+		echo "<table class=\"table table-striped\">";
+		echo "<tr ><td>#</td><td >任务列表</td></tr>";
+		for($i=0;$i<count($users);$i++)
+		{
 
-	
+			echo "<tr class=\"\"><td><span class=\"badge badge-success\">".($i+1)."</span></td><td ><small ><a href=\"comments.php?id=".$i."\">".$users[$i]['contents']."</a></small></td></tr>";
+
+		
+		}
+		echo "</table>";
 	}
 	else
 	{
 		echo "dfdfdfd";
 	
 	}
-	//$a=new MyPoA;
-	//$a->setMyPoAName('weitao');
+
+	//$a=new Task_t;
+	//$a->set_Task_t_title($title);
+	//$a->set_Task_t_contents($contents);
+	//$a->set_Task_t_user_id($user_id);
 
 	//$b=new MyPoB;
 	//$b->setMyPoBNick('weitao');
@@ -35,20 +38,7 @@ if(isset($sbt))
 	//$em->persist($a);
 	//$em->persist($b);
 	//$em->flush();
-}
-else
-{
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Sign in </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -89,27 +79,3 @@ else
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-
-    <!-- Fav and touch icons -->
-  </head>
-  <body>
-    <div class="container">
-	<form class="form-signin" method="post" action="<?=$PHP_SELF?>">
-        <h2 class="form-signin-heading">Please Login</h2>
-	<input type="text" name="login" class="input-block-level" placeholder="login" >
-	<input type="password" name="pwd" class="input-block-level" placeholder="Password" >
-	<input name="sbt" type="submit" value="Login" class="btn btn-large btn-primary" />
-	</form>
-
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery.js"></script>
-
-  </body>
-</html>
-<?
-}
-?>

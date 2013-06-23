@@ -15,7 +15,8 @@ if(isset($sbt))
 	$users = $eee->getArrayResult();
 	if($users)
 	{
-		$_SESSION['wt']='wt';
+		$_SESSION['login']=$login;
+		$_SESSION['user_id']=$users[0]['user_id'];
 		Header("Location:home.php");
 
 	

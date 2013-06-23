@@ -1,14 +1,15 @@
 <?php
 Header("Content-type:text/html;charset=utf-8");
 session_start();
-use witclass\Task_t;
+use witclass\Taskinfo_t;
 
 $session_login=$_SESSION['login'];
 $session_user_id=$_SESSION['user_id'];
+$id=$_GET['id'];
 require_once 'doctrine.php';
-$title=$_POST['title'];
 $contents=$_POST['contents'];
 $user_id=$_POST['session_user_id'];
+$task_id=$_POST['task_id'];
 $sbt=$_POST['sbt'];
 if(isset($sbt))
 {
@@ -28,10 +29,10 @@ if(isset($sbt))
 	#
 	#}
 
-	$a=new Task_t;
-	$a->set_Task_t_title($title);
-	$a->set_Task_t_contents($contents);
-	$a->set_Task_t_user_id($user_id);
+	$a=new Taskinfo_t;
+	$a->set_Taskinfo_t_task_id($task_id);
+	$a->set_Taskinfo_t_comment($contents);
+	$a->set_Taskinfo_t_user_id($user_id);
 
 	//$b=new MyPoB;
 	//$b->setMyPoBNick('weitao');
@@ -100,11 +101,11 @@ else
   <body>
     <div class="container">
 	<form class="form-signin" method="post" action="<?=$PHP_SELF?>">
-	<h2 class="form-signin-heading">Publish</h2>
-	<input type="text" name="title" class="input-block-level" placeholder="Title" >
-	<input type="hidden" name="session_user_id" value="<?=$session_user_id?>" class="input-block-level" placeholder="Title" >
+	<h2 class="form-signin-heading">Coments</h2>
+	<input type="hidden" name="session_user_id" value="<?=$session_user_id?>" class="input-block-level"  >
+	<input type="hidden" name="task_id" value="<?=$id?>" class="input-block-level"  >
 	<textarea name="contents" class="input-block-level" placeholder="Contents" > </textarea>
-	<input name="sbt" type="submit" value="Publish" class="btn btn-large btn-primary" />
+	<input name="sbt" type="submit" value="Comments" class="btn btn-large btn-primary" />
 	</form>
 
     </div> <!-- /container -->

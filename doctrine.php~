@@ -39,7 +39,7 @@ $connectionOptions = array(
 // Create EntityManager
 $em = EntityManager::create($connectionOptions, $config);
 
-echo 'Hello World! gy!2' . PHP_EOL;
+//echo 'Hello World! gy!2' . PHP_EOL;
 
 
 

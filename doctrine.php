@@ -11,7 +11,6 @@ require_once "vendor/autoload.php";
 
 // Set up Entities class loading.
 $classLoader = new ClassLoader('witclass', __DIR__);
-//print_r($classLoader);
 $classLoader->register();
 
 // Set up caches
@@ -39,7 +38,6 @@ $connectionOptions = array(
 // Create EntityManager
 $em = EntityManager::create($connectionOptions, $config);
 
-//echo 'Hello World! gy!2' . PHP_EOL;
 
 
 
