@@ -16,14 +16,14 @@ if(isset($sbt))
 	if($users)
 	{
 		$_SESSION['login']=$login;
-		$_SESSION['user_id']=$users['user_id'];
+		$_SESSION['user_id']=$users[0]['user_id'];
 		Header("Location:home.php");
 
 	
 	}
 	else
 	{
-		echo "dfdfdfd";
+		Header("Location:home.php");
 	
 	}
 	//$a=new MyPoA;

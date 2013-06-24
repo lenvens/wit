@@ -3,10 +3,36 @@ Header("Content-type:text/html;charset=utf-8");
 session_start();
 use witclass\Taskinfo_t;
 
+
+
+
+
+
+
 $session_login=$_SESSION['login'];
 $session_user_id=$_SESSION['user_id'];
 $id=$_GET['id'];
 require_once 'doctrine.php';
+
+
+	$eee = $em->createQuery('SELECT u FROM witclass\Taskinfo_t u where u.task_id='.$id.'');
+	$users = $eee->getArrayResult();
+	$comments_num=count($users);
+		echo "<table class=\"table table-striped\">";
+		echo "<tr ><td>#</td><td >评论</td></tr>";
+		for($i=0;$i<count($users);$i++)
+		{
+
+			echo "<tr class=\"\"><td><span class=\"badge badge-success\">".($i+1)."</span></td><td ><small >".$users[$i]['comment']."</small></td></tr>";
+		
+		}
+		echo "</table>";
+	
+	
+	
+
+
+
 $contents=$_POST['contents'];
 $user_id=$_POST['session_user_id'];
 $task_id=$_POST['task_id'];
@@ -14,22 +40,7 @@ $sbt=$_POST['sbt'];
 if(isset($sbt))
 {
 
-	#login
-	#$eee = $em->createQuery('SELECT u FROM po\MyPoA u where u.name=\''.$login.'\' and u.password=\''.$pwd.'\'');
-	#$users = $eee->getArrayResult();
-	#var_dump($users);
-	#if($users)
-	#{
-	#	echo "xxxdfd";
-	#
-	#}
-	#else
-	#{
-	#	echo "dfdfdfd";
-	#
-	#}
 
-	echo "xxx";
 	$a=new Taskinfo_t;
 	$a->set_Taskinfo_t_task_id($task_id);
 	$a->set_Taskinfo_t_comment($contents);
@@ -41,7 +52,7 @@ if(isset($sbt))
 	$em->persist($a);
 	//$em->persist($b);
 	$em->flush();
-	header("Location:main.php");
+	header("Location:comments.php");
 }
 else
 {

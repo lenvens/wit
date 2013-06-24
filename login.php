@@ -23,7 +23,7 @@ if(isset($sbt))
 	}
 	else
 	{
-		echo "dfdfdfd";
+		Header("Location:login.php");
 	
 	}
 	//$a=new MyPoA;
